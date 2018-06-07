@@ -1,13 +1,17 @@
 package main
 
 import (
-	"fmt"
-	"awesomeProject/a"
-	"awesomeProject/ak/dk"
+	"net/http"
+	"awesomeProject/router"
 )
 
-func main(){
-	fmt.Println("Akezhan")
-	a.A()
-	dk.D()
+func main() {
+	http.HandleFunc("/", index)
+	http.HandleFunc("/login", router.Login)
+	http.HandleFunc("/signup", router.Signup)
+	http.ListenAndServe(":8080", nil)
+}
+
+func index(w http.ResponseWriter, r *http.Request){
+	http.Redirect(w, r, "/signup", http.StatusSeeOther)
 }
