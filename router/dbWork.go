@@ -8,6 +8,8 @@ import (
 	"awesomeProject/config"
 	"fmt"
 	"time"
+	"github.com/go-redis/redis"
+	"github.com/satori/go.uuid"
 )
 
 type User struct {
@@ -27,10 +29,8 @@ func insertDb(r *http.Request) error {
 	user.Password = r.FormValue("password")
 	user.ConfirmPassword = r.FormValue("confirmPassword")
 
-
-
 	if user.Password != user.ConfirmPassword {
-		return errors.New("406 Password do not match")
+		return errors.New("405 Password do not match")
 	}
 
 	bytePass, err := bcrypt.GenerateFromPassword([]byte(user.Password), 15)
@@ -66,9 +66,74 @@ func insertDb(r *http.Request) error {
 	return nil
 }
 
-/*
-func validUser(r *http.Request) error{
+
+func validUser(w http.ResponseWriter, r *http.Request) error {
 	userEmail := r.FormValue("email")
 	userPassword := r.FormValue("password")
-}
+
+  	// From Reddis
+	dbPass, err := config.Cache.Get(userEmail).Result()
+	if err == redis.Nil {
+		return errors.New("Password or Email incorrect")
+	}else if err != nil {
+		panic("Redis getting error")
+	}
+
+	unhash, err := hex.DecodeString(dbPass)
+	if err != nil {
+		panic("Decoing error")
+	}
+
+	err = bcrypt.CompareHashAndPassword(unhash, []byte(userPassword))
+	if err != nil {
+		return errors.New("Password do not mathc 401")
+	}
+
+	// set Cookies
+	sessionToken, err := uuid.NewV4()
+	if err != nil {
+		panic("Session Token")
+	}
+	err = config.Cache.Set(sessionToken.String(), userEmail, time.Hour).Err()
+	if err != nil {
+		// If there is an error in setting the cache, return an internal server error
+		w.WriteHeader(http.StatusInternalServerError)
+		return errors.New("Error Setting cookie")
+	}
+	http.SetCookie(w, &http.Cookie{
+		Name:    "session_token",
+		Value:   sessionToken.String(),
+		Expires: time.Now().Add(time.Hour),
+	})
+
+/*
+	// In PostGress
+	if err := config.Db.Ping(); err != nil {
+		panic(err)
+	}
+	fmt.Println("You connected to your database.")
+
+	rows, err := config.Db.Query("SELECT user_password FROM user_info WHERE user_email = $1", userEmail)
+	if err != nil {
+		panic(err)
+	}
+	defer rows.Close()
+	var encPass string
+	for rows.Next() {
+		err = rows.Scan(&encPass)
+	}
+	unhash, err := hex.DecodeString(encPass)
+	if err != nil {
+		panic("Decoing error")
+	}
+
+	err = bcrypt.CompareHashAndPassword(unhash, []byte(userPassword))
+	if err != nil {
+		panic("Passwords do not match")
+	}
 */
+
+	return nil
+}
+
+

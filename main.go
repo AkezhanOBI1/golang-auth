@@ -9,6 +9,7 @@ func main() {
 	http.HandleFunc("/", index)
 	http.HandleFunc("/login", router.Login)
 	http.HandleFunc("/signup", router.Signup)
+	http.HandleFunc("/secret", router.Secret)
 	http.ListenAndServe(":8080", nil)
 }
 

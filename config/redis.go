@@ -27,6 +27,5 @@ func init() {
 	fmt.Println("Nice redis is running")
 	// Assign the connection to the package level `cache` variable
 	Cache = client
-
 }
 
