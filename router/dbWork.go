@@ -7,6 +7,7 @@ import (
 	"golang.org/x/crypto/bcrypt"
 	"awesomeProject/config"
 	"fmt"
+	"time"
 )
 
 type User struct {
@@ -18,7 +19,7 @@ type User struct {
 }
 
 
-func insertDb(r *http.Request) (User, error) {
+func insertDb(r *http.Request) error {
 	user := User{}
 	user.Email = r.FormValue("email")
 	user.Name = r.FormValue("name")
@@ -29,7 +30,7 @@ func insertDb(r *http.Request) (User, error) {
 
 
 	if user.Password != user.ConfirmPassword {
-		return user, errors.New("406 Password do not match")
+		return errors.New("406 Password do not match")
 	}
 
 	bytePass, err := bcrypt.GenerateFromPassword([]byte(user.Password), 15)
@@ -42,22 +43,32 @@ func insertDb(r *http.Request) (User, error) {
 	}
 
 	fmt.Println("DATABASE is ok before inserting")
-	sqlStatement := "INSERT INTO user_info (user_email, user_name, user_last_name, user_password) VALUES ($1, $2, $3, $4)"
-	_, err = config.Db.Query(sqlStatement, user.Email, user.Name, user.LastName, passDb)
-	if err != nil {
-		panic("Error inserting")
-	}
+	go func() {
+		sqlStatement := "INSERT INTO user_info (user_email, user_name, user_last_name, user_password) VALUES ($1, $2, $3, $4)"
+		_, err = config.Db.Query(sqlStatement, user.Email, user.Name, user.LastName, passDb)
+		if err != nil {
+			panic("Error inserting")
+		}
+		fmt.Println("Inserted into db")
+	}()
 
-	_, err = config.Cache.Do("SETEX", "UserName", "150", user.Email)
-	if err != nil {
-		panic("REDIS ERROR")
-	}
-	_, err = config.Cache.Do("SETEX", "UserPassword", "150", passDb)
-	if err != nil {
-		panic("REDIS ERROR")
-	}
+	pong, err := config.Cache.Ping().Result()
+	fmt.Println(pong, err)
 
+	go func() {
+		 err := config.Cache.Set(user.Email, passDb, time.Hour).Err()
+		if err != nil {
+			panic("REDIS ERROR")
+		}
+		fmt.Println("Inserted into Redis")
+	}()
 
-
-	return user, nil
+	return nil
 }
+
+/*
+func validUser(r *http.Request) error{
+	userEmail := r.FormValue("email")
+	userPassword := r.FormValue("password")
+}
+*/
