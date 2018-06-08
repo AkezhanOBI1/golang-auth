@@ -3,7 +3,7 @@ package router
 import (
 	"net/http"
 	"awesomeProject/config"
-	"github.com/go-redis/redis"
+
 )
 
 
@@ -37,27 +37,9 @@ func Signup(w http.ResponseWriter, r *http.Request) {
 
 func Secret(w http.ResponseWriter, r *http.Request) {
 
-	c, err := r.Cookie("session_token")
+	response, err := checkCookie(r, "session_token")
 	if err != nil {
-		if err == http.ErrNoCookie {
-			// If the cookie is not set, return an unauthorized status
-			w.WriteHeader(http.StatusUnauthorized)
-			return
-		}
-		// For any other type of error, return a bad request status
-		w.WriteHeader(http.StatusBadRequest)
-		return
-	}
-	sessionToken := c.Value
-
-
-	response, err := config.Cache.Get(sessionToken).Result()
-	if err == redis.Nil {
-		w.WriteHeader(http.StatusUnauthorized)
-		return
-	}else if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		return
+		http.Redirect(w, r, "/login", http.StatusSeeOther	)
 	}
 
 	config.Tpl.ExecuteTemplate(w, "makeorder.html", response)

@@ -9,7 +9,6 @@ import (
 	"fmt"
 	"time"
 	"github.com/go-redis/redis"
-	"github.com/satori/go.uuid"
 )
 
 type User struct {
@@ -90,23 +89,13 @@ func validUser(w http.ResponseWriter, r *http.Request) error {
 	}
 
 	// set Cookies
-	sessionToken, err := uuid.NewV4()
-	if err != nil {
-		panic("Session Token")
-	}
-	err = config.Cache.Set(sessionToken.String(), userEmail, time.Hour).Err()
-	if err != nil {
-		// If there is an error in setting the cache, return an internal server error
-		w.WriteHeader(http.StatusInternalServerError)
-		return errors.New("Error Setting cookie")
-	}
-	http.SetCookie(w, &http.Cookie{
-		Name:    "session_token",
-		Value:   sessionToken.String(),
-		Expires: time.Now().Add(time.Hour),
-	})
 
-/*
+	err = setCookie(w, userEmail)
+	if err != nil {
+		return err
+	}
+	return nil
+	/*
 	// In PostGress
 	if err := config.Db.Ping(); err != nil {
 		panic(err)
@@ -132,8 +121,5 @@ func validUser(w http.ResponseWriter, r *http.Request) error {
 		panic("Passwords do not match")
 	}
 */
-
-	return nil
 }
-
 

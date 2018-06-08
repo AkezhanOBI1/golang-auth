@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="935e4f5d-ff75-45b6-8f99-2a23ba779c77" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/makeorder.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/router/cookie.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/redis.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/redis.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/router/dbWork.go" beforeDir="false" afterPath="$PROJECT_DIR$/router/dbWork.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/router/handlers.go" beforeDir="false" afterPath="$PROJECT_DIR$/router/handlers.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
     </list>
     <ignored path="*.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,12 +37,10 @@
       <file leaf-file-name="handlers.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/router/handlers.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+            <state relative-caret-position="423">
+              <caret line="41" column="60" selection-start-line="41" selection-start-column="60" selection-end-line="41" selection-end-column="60" />
               <folding>
                 <element signature="e#16#42#0" expanded="true" />
-                <element signature="n#!!block;n#Signup#0" />
-                <element signature="n#!!block;n#Secret#0" />
               </folding>
             </state>
           </provider>
@@ -87,12 +82,26 @@
       <file leaf-file-name="dbWork.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/router/dbWork.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="88" column="52" selection-start-line="88" selection-start-column="52" selection-end-line="88" selection-end-column="52" />
+            <state relative-caret-position="330">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
               <folding>
                 <element signature="e#16#98#0" expanded="true" />
+                <element signature="n#!!block;n#insertDb#0" />
                 <element signature="e#1352#1497#0" />
+                <element signature="n#!!block;n#validUser#0" />
                 <element signature="e#2062#2625#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cookie.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/router/cookie.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="33" column="61" selection-start-line="33" selection-start-column="61" selection-end-line="33" selection-end-column="61" />
+              <folding>
+                <element signature="e#16#110#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -112,8 +121,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Go File" />
         <option value="HTML File" />
+        <option value="Go File" />
       </list>
     </option>
   </component>
@@ -141,6 +150,7 @@
         <option value="$PROJECT_DIR$/main.go" />
         <option value="$PROJECT_DIR$/templates/makeorder.html" />
         <option value="$PROJECT_DIR$/router/dbWork.go" />
+        <option value="$PROJECT_DIR$/router/cookie.go" />
         <option value="$PROJECT_DIR$/router/handlers.go" />
       </list>
     </option>
@@ -178,11 +188,6 @@
               <item name="awesomeProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="awesomeProject" type="462c0819:PsiDirectoryNode" />
               <item name="router" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="awesomeProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="awesomeProject" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="awesomeProject" type="b2602c69:ProjectViewProjectNode" />
@@ -232,10 +237,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="260" y="52" width="1400" height="1000" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="Database Console" weight="0.32911393" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49942595" visible="true" weight="0.211226" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49942595" visible="true" weight="0.12776957" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3295063" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50073856" side_tool="true" weight="0.3295063" />
       <window_info anchor="right" id="Database" order="3" visible="true" weight="0.09970458" />
@@ -294,7 +298,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="5" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -436,6 +440,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/makeorder.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="28" lean-forward="true" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/config/redis.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -446,33 +457,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/makeorder.html">
+    <entry file="file://$PROJECT_DIR$/router/dbWork.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="28" lean-forward="true" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+        <state relative-caret-position="330">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="e#16#98#0" expanded="true" />
+            <element signature="n#!!block;n#insertDb#0" />
+            <element signature="e#1352#1497#0" />
+            <element signature="n#!!block;n#validUser#0" />
+            <element signature="e#2062#2625#0" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/router/dbWork.go">
+    <entry file="file://$PROJECT_DIR$/router/cookie.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="88" column="52" selection-start-line="88" selection-start-column="52" selection-end-line="88" selection-end-column="52" />
+        <state relative-caret-position="180">
+          <caret line="33" column="61" selection-start-line="33" selection-start-column="61" selection-end-line="33" selection-end-column="61" />
           <folding>
-            <element signature="e#16#98#0" expanded="true" />
-            <element signature="e#1352#1497#0" />
-            <element signature="e#2062#2625#0" />
+            <element signature="e#16#110#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/router/handlers.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+        <state relative-caret-position="423">
+          <caret line="41" column="60" selection-start-line="41" selection-start-column="60" selection-end-line="41" selection-end-column="60" />
           <folding>
             <element signature="e#16#42#0" expanded="true" />
-            <element signature="n#!!block;n#Signup#0" />
-            <element signature="n#!!block;n#Secret#0" />
           </folding>
         </state>
       </provider>
