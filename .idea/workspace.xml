@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="935e4f5d-ff75-45b6-8f99-2a23ba779c77" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/router/cookie.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/router/dbWork.go" beforeDir="false" afterPath="$PROJECT_DIR$/router/dbWork.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/handlers.go" beforeDir="false" afterPath="$PROJECT_DIR$/router/handlers.go" afterDir="false" />
     </list>
     <ignored path="*.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,10 +32,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="handlers.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="handlers.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/router/handlers.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
+            <state relative-caret-position="468">
               <caret line="41" column="60" selection-start-line="41" selection-start-column="60" selection-end-line="41" selection-end-column="60" />
               <folding>
                 <element signature="e#16#42#0" expanded="true" />
@@ -46,34 +44,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="makeorder.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/makeorder.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="28" lean-forward="true" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="redis.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/redis.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
+            <state relative-caret-position="465">
+              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
               <folding>
                 <element signature="e#14#64#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
-              <folding>
-                <element signature="e#14#61#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -82,24 +59,21 @@
       <file leaf-file-name="dbWork.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/router/dbWork.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="439">
+              <caret line="115" column="28" selection-start-line="115" selection-start-column="28" selection-end-line="115" selection-end-column="28" />
               <folding>
                 <element signature="e#16#98#0" expanded="true" />
-                <element signature="n#!!block;n#insertDb#0" />
                 <element signature="e#1352#1497#0" />
-                <element signature="n#!!block;n#validUser#0" />
-                <element signature="e#2062#2625#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cookie.go" pinned="false" current-in-tab="false">
+      <file leaf-file-name="cookie.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/router/cookie.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="33" column="61" selection-start-line="33" selection-start-column="61" selection-end-line="33" selection-end-column="61" />
+            <state relative-caret-position="138">
+              <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
               <folding>
                 <element signature="e#16#110#0" expanded="true" />
               </folding>
@@ -145,13 +119,13 @@
         <option value="$PROJECT_DIR$/config/db.go" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/e0d5e180-a97e-48af-baa3-d32604bb97d6/console.sql" />
         <option value="$PROJECT_DIR$/router/redis.go" />
-        <option value="$PROJECT_DIR$/config/redis.go" />
         <option value="$PROJECT_DIR$/templates/login.html" />
         <option value="$PROJECT_DIR$/main.go" />
         <option value="$PROJECT_DIR$/templates/makeorder.html" />
+        <option value="$PROJECT_DIR$/router/handlers.go" />
+        <option value="$PROJECT_DIR$/config/redis.go" />
         <option value="$PROJECT_DIR$/router/dbWork.go" />
         <option value="$PROJECT_DIR$/router/cookie.go" />
-        <option value="$PROJECT_DIR$/router/handlers.go" />
       </list>
     </option>
   </component>
@@ -237,12 +211,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="260" y="52" width="1400" height="1000" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="Database Console" weight="0.32911393" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49942595" visible="true" weight="0.12776957" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3295063" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50073856" side_tool="true" weight="0.3295063" />
-      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.09970458" />
+      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.16100442" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32911393" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32911393" />
@@ -298,7 +273,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <option name="time" value="6" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -416,17 +391,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e0d5e180-a97e-48af-baa3-d32604bb97d6/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="46" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/makeorder.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="28" lean-forward="true" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -440,53 +415,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/makeorder.html">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e0d5e180-a97e-48af-baa3-d32604bb97d6/console.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="28" lean-forward="true" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/dbWork.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="115" column="28" selection-start-line="115" selection-start-column="28" selection-end-line="115" selection-end-column="28" />
+          <folding>
+            <element signature="e#16#98#0" expanded="true" />
+            <element signature="e#1352#1497#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/redis.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
+        <state relative-caret-position="465">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
           <folding>
             <element signature="e#14#64#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/router/dbWork.go">
+    <entry file="file://$PROJECT_DIR$/router/handlers.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="468">
+          <caret line="41" column="60" selection-start-line="41" selection-start-column="60" selection-end-line="41" selection-end-column="60" />
           <folding>
-            <element signature="e#16#98#0" expanded="true" />
-            <element signature="n#!!block;n#insertDb#0" />
-            <element signature="e#1352#1497#0" />
-            <element signature="n#!!block;n#validUser#0" />
-            <element signature="e#2062#2625#0" />
+            <element signature="e#16#42#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/router/cookie.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="33" column="61" selection-start-line="33" selection-start-column="61" selection-end-line="33" selection-end-column="61" />
+        <state relative-caret-position="138">
+          <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
           <folding>
             <element signature="e#16#110#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/handlers.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="41" column="60" selection-start-line="41" selection-start-column="60" selection-end-line="41" selection-end-column="60" />
-          <folding>
-            <element signature="e#16#42#0" expanded="true" />
           </folding>
         </state>
       </provider>

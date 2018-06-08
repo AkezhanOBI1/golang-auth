@@ -73,7 +73,30 @@ func validUser(w http.ResponseWriter, r *http.Request) error {
   	// From Reddis
 	dbPass, err := config.Cache.Get(userEmail).Result()
 	if err == redis.Nil {
-		return errors.New("Password or Email incorrect")
+		if err := config.Db.Ping(); err != nil {
+			panic(err)
+		}
+		fmt.Println("You connected to your database.")
+
+		rows, err := config.Db.Query("SELECT user_password FROM user_info WHERE user_email = $1", userEmail)
+		if err != nil {
+			panic(err)
+		}
+		defer rows.Close()
+
+		for rows.Next() {
+			err = rows.Scan(&dbPass)
+		}
+		unhash, err := hex.DecodeString(dbPass)
+		if err != nil {
+			panic("Decoing error")
+		}
+
+		err = bcrypt.CompareHashAndPassword(unhash, []byte(userPassword))
+		if err != nil {
+			panic("Passwords do not match")
+		}
+
 	}else if err != nil {
 		panic("Redis getting error")
 	}
@@ -97,29 +120,7 @@ func validUser(w http.ResponseWriter, r *http.Request) error {
 	return nil
 	/*
 	// In PostGress
-	if err := config.Db.Ping(); err != nil {
-		panic(err)
-	}
-	fmt.Println("You connected to your database.")
 
-	rows, err := config.Db.Query("SELECT user_password FROM user_info WHERE user_email = $1", userEmail)
-	if err != nil {
-		panic(err)
-	}
-	defer rows.Close()
-	var encPass string
-	for rows.Next() {
-		err = rows.Scan(&encPass)
-	}
-	unhash, err := hex.DecodeString(encPass)
-	if err != nil {
-		panic("Decoing error")
-	}
-
-	err = bcrypt.CompareHashAndPassword(unhash, []byte(userPassword))
-	if err != nil {
-		panic("Passwords do not match")
-	}
 */
 }
 
