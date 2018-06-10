@@ -6,13 +6,10 @@ import (
 
 )
 
-
-
 func Login(w http.ResponseWriter, r *http.Request) {
 	 if r.Method == http.MethodPost {
 		err := validUser(w, r)
 		if err != nil {
-		//	http.Error(w, http.StatusText(405), http.StatusMethodNotAllowed)
 			http.Redirect(w, r, "/login", http.StatusSeeOther)
 			return
 		}
