@@ -11,16 +11,15 @@ func init() {
 
 	client := redis.NewClient(&redis.Options{
 		Addr:     "localhost:6379",
-		Password: "", // no password set
-		DB:       0,  // use default DB
+		Password: "", 
+		DB:       0, 
 	})
 
 
 	pong, err := client.Ping().Result()
 	fmt.Println(pong, err)
 
-	fmt.Println("Nice redis is running")
-	// Assign the connection to the package level `cache` variable
+	fmt.Println("Nice, redis is running")
 	Cache = client
 }
 
