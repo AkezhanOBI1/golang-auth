@@ -8,11 +8,6 @@ import (
 var Cache *redis.Client
 
 func init() {
-	// Initialize the redis connection to a redis instance running on your local machine
-	/*conn, err := redis.DialURL("redis://localhost")
-	if err != nil {
-		panic(err)
-	}*/
 
 	client := redis.NewClient(&redis.Options{
 		Addr:     "localhost:6379",
